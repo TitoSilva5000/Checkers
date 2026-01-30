@@ -1,4 +1,4 @@
-package dev.tito.core
+package dev.tito.core.board
 
 data class Coordinate(
     val x: Int,

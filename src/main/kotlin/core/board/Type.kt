@@ -1,4 +1,4 @@
-package dev.tito.core
+package dev.tito.core.board
 
 enum class Type (val symbol: Char) {
     BLACK(symbol = 'B'),

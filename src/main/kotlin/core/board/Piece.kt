@@ -1,4 +1,6 @@
-package dev.tito.core
+package dev.tito.core.board
+
+import dev.tito.core.board.Type
 
 data class Piece(
     val coordinate: Coordinate,
