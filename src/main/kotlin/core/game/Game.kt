@@ -7,18 +7,24 @@ data class Game(
     private val players: List<Player> = emptyList(),
     private val board: Board = Board()
 ) {
-    private var targets: Boolean = false
     private var turn: Boolean = true
+
+    fun printName() {
+        println(name)
+    }
+
+    fun printPlayers() {
+        println(players)
+    }
+
+    fun printBoard() {
+        board.print()
+    }
 
     fun print() {
         println(name)
         println(players)
         board.print()
-    }
-
-    fun toggleTargets() {
-        // TODO("Implement Target Logic")
-        targets = !targets
     }
 
     fun addPlayer(player: Player): Game {

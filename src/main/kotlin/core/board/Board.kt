@@ -20,6 +20,7 @@ data class Board(
     }
 
     private val size: Int = side * side
+    private var targets: Boolean = false
 
     private fun Int.toCoordinate(): Coordinate {
         require(this in 0 until size) {
@@ -47,6 +48,17 @@ data class Board(
         return get(idx.toCoordinate())
     }
 
+    fun print() {
+        println(side)
+        if (pieces.isEmpty()) {
+            println(pieces)
+        } else {
+            pieces.forEach {
+                println(it)
+            }
+        }
+    }
+
     fun start(): Board {
         val pieceRows = (side / 2) - 1
         val tmp = mutableListOf<Piece>()
@@ -63,25 +75,17 @@ data class Board(
         return copy(side = side, pieces = tmp)
     }
 
-    fun print() {
-        if (pieces.isEmpty()) {
-            println(pieces)
-        } else {
-            pieces.forEach {
-                println(it)
-            }
-        }
-    }
-
     fun removePiece(coordinate: Coordinate): Board {
-        pieces.forEach { piece -> if (piece.coordinate == coordinate) piece.remove() }
-        return this.copy(
-            pieces = pieces
-        )
+        val newPieces = pieces.map { piece -> if (piece.coordinate == coordinate) piece.remove() else piece }
+        return this.copy(pieces = newPieces)
     }
 
     fun removePiece(idx: Int): Board {
         return removePiece(coordinate = idx.toCoordinate())
+    }
+
+    fun toggleTargets() {
+        targets = !targets
     }
 
 }

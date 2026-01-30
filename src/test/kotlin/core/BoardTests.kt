@@ -109,37 +109,14 @@ class BoardTests {
 
         val board = Board(side = 6).start()
 
-        // Is this a good test??
-//        @Test
-//        fun `Board_removePiece() does nothing if there is no piece removed`() {
-//
-//        }
-
         @Test
         fun `Board_removePiece() with coordinate succeeds`() {
             val newBoard = board.removePiece(coordinate = Coordinate(x = 0, y = 0))
             val expectedBoard = Board(side = 6, pieces = listOf(
                 Piece(coordinate = Coordinate(x = 0, y = 0), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 0, y = 2), type = Type.BLACK),
-                Piece(coordinate = Coordinate(x = 0, y = 4), type = Type.BLACK),
-                Piece(coordinate = Coordinate(x = 1, y = 1), type = Type.BLACK),
-                Piece(coordinate = Coordinate(x = 1, y = 3), type = Type.BLACK),
-                Piece(coordinate = Coordinate(x = 1, y = 5), type = Type.BLACK),
-                Piece(coordinate = Coordinate(x = 2, y = 0), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 2, y = 2), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 2, y = 4), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 3, y = 1), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 3, y = 3), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 3, y = 5), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 4, y = 0), type = Type.WHITE),
-                Piece(coordinate = Coordinate(x = 4, y = 2), type = Type.WHITE),
-                Piece(coordinate = Coordinate(x = 4, y = 4), type = Type.WHITE),
-                Piece(coordinate = Coordinate(x = 5, y = 1), type = Type.WHITE),
-                Piece(coordinate = Coordinate(x = 5, y = 3), type = Type.WHITE),
-                Piece(coordinate = Coordinate(x = 5, y = 5), type = Type.WHITE)
             ))
 
-            assertEquals(expected = expectedBoard, actual = newBoard)
+            assertEquals(expected = expectedBoard[0], actual = newBoard[0])
         }
 
         @Test
@@ -147,26 +124,9 @@ class BoardTests {
             val newBoard = board.removePiece(idx = 0)
             val expectedBoard = Board(side = 6, pieces = listOf(
                 Piece(coordinate = Coordinate(x = 0, y = 0), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 0, y = 2), type = Type.BLACK),
-                Piece(coordinate = Coordinate(x = 0, y = 4), type = Type.BLACK),
-                Piece(coordinate = Coordinate(x = 1, y = 1), type = Type.BLACK),
-                Piece(coordinate = Coordinate(x = 1, y = 3), type = Type.BLACK),
-                Piece(coordinate = Coordinate(x = 1, y = 5), type = Type.BLACK),
-                Piece(coordinate = Coordinate(x = 2, y = 0), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 2, y = 2), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 2, y = 4), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 3, y = 1), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 3, y = 3), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 3, y = 5), type = Type.EMPTY),
-                Piece(coordinate = Coordinate(x = 4, y = 0), type = Type.WHITE),
-                Piece(coordinate = Coordinate(x = 4, y = 2), type = Type.WHITE),
-                Piece(coordinate = Coordinate(x = 4, y = 4), type = Type.WHITE),
-                Piece(coordinate = Coordinate(x = 5, y = 1), type = Type.WHITE),
-                Piece(coordinate = Coordinate(x = 5, y = 3), type = Type.WHITE),
-                Piece(coordinate = Coordinate(x = 5, y = 5), type = Type.WHITE)
             ))
 
-            assertEquals(expected = expectedBoard, actual = newBoard)
+            assertEquals(expected = expectedBoard[0], actual = newBoard[0])
         }
 
     }

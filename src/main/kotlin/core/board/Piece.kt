@@ -13,4 +13,5 @@ data class Piece(
             type = Type.EMPTY
         )
     }
+
 }
