@@ -1,40 +1,16 @@
 package dev.tito.cli
 
-import dev.tito.cli.commands.*
+import dev.tito.cli.states.MenuState
+import dev.tito.cli.states.State
 
 class CLI {
 
     fun start() {
-        while(true) {
-            println(
-                "---------- CHECKERS ----------\n" +
-                "> 1 - PLAY\n" +
-                "> 2 - CREDITS\n" +
-                "> 3 - EXIT\n" +
-                "------------------------------"
-            )
-            print("> ")
-            when (readln()) {
-                "1" -> play()
-                "2" -> break
-                "3" -> break
-                else -> println("Unknown input")
-            }
+        var currentState: State? = MenuState()
 
-        }
-        println("Thanks for playing!")
-    }
+        while (currentState != null) { currentState = currentState.execute(cli = this) }
 
-    fun play() {
-        while(true) {
-            println("Insert game name:")
-            print("> ")
-            val gameName = readln()
-            println("Enter your name:")
-            print("> ")
-            val playerName = readln()
-
-        }
+        println("Goodbye!")
     }
 
 }
